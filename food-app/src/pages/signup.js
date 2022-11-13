@@ -1,3 +1,6 @@
+import './signup.css';
+import React from 'react';
+
 function SignUp() {
   return (
     <div>
@@ -19,17 +22,17 @@ function SignUp() {
                     <input type="text" placeholder="full name"/>
                 </label>
             </div>
-            <div>
-                <button>hi</button>
-                <button>hi</button>
-                <button>hi</button>
-                <button>hi</button>
+            <div className='prefBtns2'>
+                <p className="prefs">hi</p>
+                <p className="prefs">hi</p>
+                <p className="prefs">hi</p>
+                <p className="prefs">hi</p>
             </div>
-            <div>
-                <button>hi</button>
-                <button>hi</button>
-                <button>hi</button>
-                <button>hi</button>
+            <div className='prefBtns2'>
+                <p className="prefs">hi</p>
+                <p className="prefs">hi</p>
+                <p className="prefs">hi</p>
+                <p className="prefs">hi</p>
             </div>
             <input type="submit" value="Submit" />
         </form>

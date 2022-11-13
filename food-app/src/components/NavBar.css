@@ -10,3 +10,10 @@
     font-family: "JetBrains Mono";
   }
 
+  a, u {
+    text-decoration: none;
+  }
+
+  a, a:visited, a:hover, a:active {
+    color: inherit;
+  }

@@ -5,9 +5,15 @@ import "@fontsource/jetbrains-mono";
 function NavBar() {
     return (
       <div className="NavBar">
-        <h1>Foodies</h1>
-        <button href="/favorites">favorites</button>
-        <button href="/profile">profile</button>
+        <a href="/home">
+          <h1 >Foodies</h1>
+        </a>
+        <a href="/favorites">
+          <button>favorites</button>
+        </a>
+        <a href="/profile">
+          <button>profile</button>
+        </a>
       </div>
     );
   }
