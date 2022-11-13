@@ -5,7 +5,7 @@ import "@fontsource/jetbrains-mono";
 function NavBar() {
     return (
       <div className="NavBar">
-          <a href="/home">
+          <a href="/">
             <h1>Foodies</h1>
           </a>
           <div className="Buttons">
