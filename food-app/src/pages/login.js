@@ -7,10 +7,10 @@ function Login() {
     <div className="App">
       <header className="App-header">
       <div>
-        <img style={{width: '450px', margin: '0 150px 0 0'}} src={LoginImg} alt="logo" />
+        <img style={{width: '480px', margin: '0 120px 0 0'}} src={LoginImg} alt="logo" />
       </div>
-      <div>
-        <p style={{fontSize: '33px'}}>foodies</p>
+      <div className="App-form">
+        <p style={{fontSize: '38px'}}>foodies</p>
         <form>
           <div>
             <label>

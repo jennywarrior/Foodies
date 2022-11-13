@@ -19,7 +19,6 @@ root.render(
       <Route exact path="/home" element={<Home/>}/>
       <Route exact path="/profile" element={<Profile/>}/>
       <Route exact path="/favorites" element={<Favorites/>}/>
-
     </Routes>
   </BrowserRouter>
 );

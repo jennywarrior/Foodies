@@ -33,3 +33,7 @@ input[type=submit] {
   padding: 5px 35px;
 }
 
+.App-form {
+    margin-right: 50px;
+  }
+
