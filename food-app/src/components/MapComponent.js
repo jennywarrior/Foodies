@@ -40,8 +40,8 @@ const MapComponent = () => {
   const containerStyle = {
     backgroundColor: "aquamarine",
     width: "100%",
-    height: "500px",
-    borderRadius: "30px"
+    height: "100%",
+    borderRadius: "30px 0px 0px 30px"
   };
 
   const center = {
