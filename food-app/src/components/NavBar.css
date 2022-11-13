@@ -1,0 +1,12 @@
+.NavBar {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    padding: 1em;
+    margin-bottom: 2em;
+    background-color: #F2F2F2;
+    font-family: "JetBrains Mono";
+  }
+
