@@ -1,12 +1,16 @@
-import './home.css';
+import "./home.css";
 import "@fontsource/jetbrains-mono";
-import NavBar from '../components/NavBar';
-import React, { useState } from 'react';
-import Modal from '../components/modal';
+import NavBar from "../components/NavBar";
+import React, { useState } from "react";
+import Modal from "../components/modal";
+import { Wrapper, Status } from "@googlemaps/react-wrapper";
 
 function Home({closeModal}) {
   const [show, setShow] = useState(false);  
   const [liked, setLiked] = useState(false);
+
+
+  
   let list = [];
   for (let i = 0; i < 5; i++) {
     list.push(
@@ -22,25 +26,23 @@ function Home({closeModal}) {
           
         </div>
       </div>
-    )
+    );
   }
 
   return (
     <>
-    <div>
-        <NavBar/>
-        {show && <Modal closeModal={setShow}/>}
+      <div>
+        <NavBar />
+        {show && <Modal closeModal={setShow} />}
         <div className="Home">
-            <div className="Map"></div>
+          <div className="Map"></div>
           <div className="Restaurants">
-              <p>Restaurants Near You</p>
-              {list}
+            <p>Restaurants Near You</p>
+            {list}
           </div>
         </div>
-        
-    </div>
+      </div>
     </>
-    
   );
 }
 

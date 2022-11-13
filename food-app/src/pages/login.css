@@ -15,6 +15,19 @@ App {
   font-family: "JetBrains Mono";
 }
 
+button {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background: #F6F6F6;
+  padding: 15px;
+  font: 15px sans-serif;
+  border-radius: 13px;
+  margin-top: 20px;
+  color: #3E3D3D;
+  font-family: "JetBrains Mono";
+}
+
 input {
   border: 0;
   padding: 0;
@@ -28,7 +41,7 @@ input {
   font-family: "JetBrains Mono";
 }
 
-input[type=submit] {
+button {
   background-color: #C2DBFF;
   padding: 5px 35px;
 }
