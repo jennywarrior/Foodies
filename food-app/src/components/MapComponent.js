@@ -5,6 +5,7 @@ import {
   LoadScript,
   Marker,
 } from "@react-google-maps/api";
+import icon from "../images/icon.png";
 
 const MapComponent = ({initialMarkers}) => {
   const [activeInfoWindow, setActiveInfoWindow] = useState("");
@@ -46,6 +47,7 @@ const MapComponent = ({initialMarkers}) => {
       >
         {markers.map((marker, index) => (
           <Marker
+            icon={icon}
             key={index}
             position={marker.geometry.location}
             label={{

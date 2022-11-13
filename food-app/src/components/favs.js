@@ -90,7 +90,7 @@ function Favs({ data }) {
         <div className="Distance">
           {data.vicinity} - {data.opening_hours.open_now ? "Open" : "Closed"}
         </div>
-        <img src={data.icon} alt="" style={{ width: "60px" }}></img>
+        <img src={data.mainImage || data.icon} alt="" style={{ width: "60px" }}></img>
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 const restaurant_data = {
   "ChIJyRFcYlAfTIYRMMP4n3ED68Q": {
-    "diet_restrictions": []
+    "diet_restrictions": [],
   },
   "ChIJg_FQAVAfTIYRKgQ-OZJRIy8": {
     "diet_restrictions": ["dairy", "vegan", "nuts", "gluten free"]
@@ -37,7 +37,7 @@ const restaurant_data = {
       "dairy",
       "gluten free",
       "seafood"
-    ]
+    ],
   },
   "ChIJBbMz4akYTIYRUDgvXmLcJYw": {
     "diet_restrictions": ["Seafood", "nuts", "dairy", "gluten"]

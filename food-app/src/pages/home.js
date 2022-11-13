@@ -44,6 +44,7 @@ function Home({ closeModal }) {
         }
 
         if (meetsCriteria) {
+          restaurant.mainImage = restaurant_data[restaurant.place_id].image;
           finalData.push(restaurant);
         }
       }
