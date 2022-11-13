@@ -1,8 +1,5 @@
-import logo from './logo.svg';
 import './home.css';
-import { Item } from 'react';
 import "@fontsource/jetbrains-mono";
-
 
 
 function Home() {
@@ -12,7 +9,7 @@ function Home() {
       <div className="Item">
         <div className='Name'>Very Awesome Restaurant</div>
         <div className="Distance">3.2 miles away - Open until 9 PM</div>
-        <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?cs=srgb&dl=pexels-ella-olsson-1640777.jpg&fm=jpg"></img>
+        <img alt="" src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?cs=srgb&dl=pexels-ella-olsson-1640777.jpg&fm=jpg"/>
       </div>
     )
   }

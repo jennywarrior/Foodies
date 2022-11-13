@@ -1,6 +1,6 @@
 function Profile() {
     return (
-      <p>HiHIIII</p>
+      <p>Favs</p>
     );
   }
   
