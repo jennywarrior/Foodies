@@ -1,4 +1,4 @@
-{
+const restaurant_data = {
   "ChIJyRFcYlAfTIYRMMP4n3ED68Q": {
     "diet_restrictions": []
   },
@@ -74,3 +74,6 @@
     "diet_restrictions": ["seafood"]
   }
 }
+
+
+export default restaurant_data;
