@@ -5,20 +5,23 @@ function Login() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={LoginImg} alt="logo" rel="noreferrer" />
       <div>
-        <p>foodies</p>
+        <img style={{width: '480px', margin: '0 120px 0 0'}} src={LoginImg} alt="logo" />
+      </div>
+      <div className="App-form">
+        <p style={{fontSize: '38px'}}>foodies</p>
         <form>
-           <label>
-                <input type="text" name="name" />
+          <div>
+            <label>
+              <input type="text" placeholder="email" />
             </label>
-            <input type="submit" value="Submit" />
-        </form>
-        <form>
-           <label>
-                <input type="text" name="name" />
+          </div>
+          <div>
+            <label>
+              <input type="text" placeholder="password" />
             </label>
-            <input type="submit" value="Submit" />
+          </div>
+            <input type="submit" value="Submit" placeholder="Login" />
         </form>
             <a
             className="App-link"
