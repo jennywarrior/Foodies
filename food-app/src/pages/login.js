@@ -1,37 +1,40 @@
 import './login.css';
 import LoginImg from './../images/loginImg.png';
+import "@fontsource/jetbrains-mono";
 
 function Login() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={LoginImg} alt="logo" rel="noreferrer" />
       <div>
-        <p>foodies</p>
+        <img style={{width: '450px', margin: '0 150px 0 0'}} src={LoginImg} alt="logo" />
+      </div>
+      <div>
+        <p style={{fontSize: '33px'}}>foodies</p>
         <form>
-           <label>
-                <input type="text" name="name" />
+          <div>
+            <label>
+              <input type="text" placeholder="email" />
             </label>
-            <input type="submit" value="Submit" />
-        </form>
-        <form>
-           <label>
-                <input type="text" name="name" />
+          </div>
+          <div>
+            <label>
+              <input type="text" placeholder="password" />
             </label>
-            <input type="submit" value="Submit" />
-        </form>
-            <a
-            className="App-link"
+          </div>
+          <a
             href="/home"
-            >
-            <p>Login</p>
+            ><input type="submit" value="Login"  />
             </a>
-            <a
-            className="App-link"
-            href="/signup"
-            >
-            <p>create account</p>
-            </a>
+        </form>
+          <a
+          className="App-link"
+          href="/signup"
+          >
+          <p style={{fontSize: '12px'}}>create account</p>
+          </a>
+          
+            
       </div>
       </header>
     </div>

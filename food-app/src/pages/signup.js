@@ -1,11 +1,12 @@
 import './signup.css';
 import React from 'react';
+import "@fontsource/jetbrains-mono";
 
 function SignUp() {
   return (
     <div>
       <header>
-        <p>foodies</p>
+        <p>Create Account</p>
         <form>
             <div>
                 <label>
