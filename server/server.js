@@ -1,4 +1,4 @@
-import express from "express";
+import express, { response } from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import { createRequire } from "module";
@@ -52,7 +52,19 @@ app.get("/api/map/", (request, response) => {
     })
 });
 
-app.post("/api/users/create", (request, response) => {
+app.post("/api/users/create/:token", (request, response) => {
+  
+})
+
+app.post("/api/users/update/:token", (request, response) => {
+
+})
+
+app.get("/api/users/information/:token", (request, response) => {
+
+})
+
+app.post("/api/restaurant/post/:token", (request, response) => {
   
 })
 
