@@ -1,7 +1,7 @@
-import logo from './logo.svg';
 import './home.css';
 import { Item } from 'react';
 import "@fontsource/jetbrains-mono";
+import NavBar from '../components/NavBar';
 
 
 
@@ -17,15 +17,19 @@ function Home() {
     )
   }
   return (
-    <div className="Home">
-      <div className="Map">
+    <div>
+        <NavBar/>
+        <div className="Home">
+            <div className="Map">
 
-      </div>
-      <div className="Restaurants">
-        <p>Restaurants Near You</p>
-        {list}
-      </div>
+        </div>
+        <div className="Restaurants">
+            <p>Restaurants Near You</p>
+            {list}
+        </div>
+        </div>
     </div>
+    
   );
 }
 
