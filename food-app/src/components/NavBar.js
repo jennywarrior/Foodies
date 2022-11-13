@@ -6,8 +6,8 @@ function NavBar() {
     return (
       <div className="NavBar">
         <h1>Foodies</h1>
-        <button>favorites</button>
-        <button>profile</button>
+        <button href="/favorites">favorites</button>
+        <button href="/profile">profile</button>
       </div>
     );
   }
