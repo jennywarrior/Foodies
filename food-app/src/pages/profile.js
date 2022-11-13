@@ -91,15 +91,17 @@ function Profile() {
                 alt="vegetarian symbol"
               />
             </div>
+          <p>change dietary preferences</p>
+          <img className="spinach" alt="" src={SpinachImg}/>
+          <button type="submit">Save</button>
           </div>
-        </div>
-        <button type="submit">Save</button>
       </form>
       <button className="button2" onClick={handleLogout}>
         logout
       </button>
     </div>
-  );
-}
+    );
+  }
 
-export default Profile;
+  export default Profile;
+  

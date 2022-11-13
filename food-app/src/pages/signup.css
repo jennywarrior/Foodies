@@ -1,3 +1,6 @@
+p {
+    font-family: "JetBrains Mono";
+}
 form {
     position: flex;
 }

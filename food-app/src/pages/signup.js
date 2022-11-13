@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import db from "../config/firestore";
 import { collection, setDoc, doc } from "firebase/firestore";
+import React from 'react';
+import "@fontsource/jetbrains-mono";
 import KosherSymbol from './../images/kosher.png';
 import HalalSymbol from './../images/halal.png';
 import DairyFreeSymbol from './../images/dairy-free.png';

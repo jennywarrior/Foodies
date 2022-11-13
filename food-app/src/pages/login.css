@@ -1,32 +1,39 @@
-.App {
-    text-align: center;
-    font-family: "JetBrains Mono";
-  }
-  
-  .App-header {
-    background-color: #ffffff;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: rgb(0, 0, 0);
-  }
+App {
+  text-align: center;
+  font-family: "JetBrains Mono";
+}
 
-  .App-form {
+.App-header {
+  background-color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: rgb(0, 0, 0);
+  font-family: "JetBrains Mono";
+}
+
+input {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background: #F6F6F6;
+  padding: 15px;
+  font: 15px sans-serif;
+  border-radius: 13px;
+  margin-top: 20px;
+  color: #3E3D3D;
+  font-family: "JetBrains Mono";
+}
+
+input[type=submit] {
+  background-color: #C2DBFF;
+  padding: 5px 35px;
+}
+
+.App-form {
     margin-right: 50px;
   }
 
-  input {
-    border: 0;
-    padding: 0;
-    margin: 0;
-    background: #F6F6F6;
-    padding: 15px;
-    font: 17px sans-serif;
-    border-radius: 20px;
-    margin-top: 20px;
-    color: #3E3D3D;
-  }
-  
