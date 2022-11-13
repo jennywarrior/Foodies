@@ -60,7 +60,6 @@ function Home({ closeModal }) {
 
   useEffect(() => {
     convert(nearby_data.results).then((json) => {
-      console.log(json);
       setMarkers(json);
     });
   }, []);
@@ -76,7 +75,7 @@ function Home({ closeModal }) {
           <div className="Restaurants">
             <p>Restaurants Near You</p>
             {markers.map((marker) => (
-              <Favs data={marker} />
+              <Favs data={marker}/>
             ))}
           </div>
         </div>

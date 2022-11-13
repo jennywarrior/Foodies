@@ -85,7 +85,6 @@ function Profile() {
   }
 
   useEffect(() => {
-    console.log(currentUser.uid);
     async function fetchData() {
       const docRef = doc(db, "users", currentUser.uid);
       const docSnap = await getDoc(docRef);
