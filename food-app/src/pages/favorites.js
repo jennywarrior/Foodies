@@ -11,7 +11,7 @@ function Profile() {
         <NavBar/>
         <div className="Restaurant">
           {list.map(() => (
-            <Favs/>
+            <Favs />
           ))}
         </div>
       </div>

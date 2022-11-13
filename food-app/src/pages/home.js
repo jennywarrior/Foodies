@@ -9,83 +9,8 @@ import db from "../config/firestore";
 import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 import { useAuth } from "../contexts/AuthContext";
 import axios from "axios";
-
-const restaurant_data = {
-  "ChIJyRFcYlAfTIYRMMP4n3ED68Q": {
-    "diet_restrictions": []
-  },
-  "ChIJg_FQAVAfTIYRKgQ-OZJRIy8": {
-    "diet_restrictions": ["dairy", "vegan", "nuts", "gluten free"]
-  },
-  "ChIJg_FQAVAfTIYRKgQ": {
-    "diet_restrictions": ["dairy", "vegan", "nuts", "seafood", "vegetarian"]
-  },
-  "ChIJEVZ58PAhTIYRY7A04xeju48": {
-    "diet_restrictions": ["dairy", "nuts", "seafood"]
-  },
-  "ChIJgabyAVAfTIYRDmr_Bq1GG8U": {
-    "diet_restrictions": ["dairy", "nuts", "seafood", "vegan", "vegetarian"]
-  },
-  "ChIJg18nmgAiTIYRtstpb0QmNvY": {
-    "diet_restrictions": ["seafood", "vegan"]
-  },
-  "ChIJ__-_YgEiTIYRPA4ez3r780Q": {
-    "diet_restrictions": [
-      "halal",
-      "vegan",
-      "nuts",
-      "dairy",
-      "gluten free",
-      "dairy",
-      "vegan",
-      "seafood"
-    ]
-  },
-  "ChIJX8WyQwciTIYRsXn8aJaoVfA": {
-    "diet_restrictions": [
-      "halal",
-      "vegan",
-      "nuts",
-      "dairy",
-      "gluten free",
-      "seafood"
-    ]
-  },
-  "ChIJBbMz4akYTIYRUDgvXmLcJYw": {
-    "diet_restrictions": ["Seafood", "nuts", "dairy", "gluten"]
-  },
-  "ChIJRX1Di4MfTIYRBAuz": {
-    "diet_restrictions": ["halal"]
-  },
-
-  "ChIJHbZd0wcZTIYREoBy1HSbX2k": {
-    "diet_restrictions": ["vegetarian"]
-  },
-
-  "ChIJ2TTATZMfTIYRRZIl1w9ZxdQ": {
-    "diet_restrictions": ["vegetarian", "vegan"]
-  },
-
-  "ChIJ9SKrF1AfTIYRfscbrnWa2ag": {
-    "diet_restrictions": ["vegetarian"]
-  },
-
-  "ChIJN3DtalAfTIYRR": {
-    "diet_restrictions": []
-  },
-
-  "ChIJxXycmqwYTIYRMR7jbZM26WA": {
-    "diet_restrictions": []
-  },
-
-  "ChIJBU5hFlAfTIYRezywU4A0N3o": {
-    "diet_restrictions": ["halal"]
-  },
-
-  "ChIJU9rMFlAfTIYR-WAnJcYbmRQ": {
-    "diet_restrictions": ["seafood"]
-  }
-}
+import restaurant_data from "../data/restaurant_data";
+import nearby_data from "../data/nearby_data";
 
 function Home({ closeModal }) {
   const [show, setShow] = useState(false);
@@ -95,34 +20,35 @@ function Home({ closeModal }) {
 
   let list = [1, 2, 3, 4, 5];
 
-  async function convert(maps){
+  async function convert(maps) {
     const docRef = doc(db, "users", currentUser.uid);
     const docSnap = await getDoc(docRef);
     const preferences = docSnap.data().preferences;
-  
+
     return new Promise((resolve, reject) => {
       var finalData = [];
-      for(let restaurant of maps){
+      for (let restaurant of maps) {
         let meetsCriteria = true;
-        const diet_restrictions = restaurant_data[restaurant.place_id]?.diet_restrictions;
-        
-        if(!diet_restrictions){
+        const diet_restrictions =
+          restaurant_data[restaurant.place_id]?.diet_restrictions;
+
+        if (!diet_restrictions) {
           continue;
         }
-  
-        for(let userP of preferences){
-            if(!diet_restrictions.includes(userP)){
-              meetsCriteria = false;
-              break;
-            }
+
+        for (let userP of preferences) {
+          if (!diet_restrictions.includes(userP)) {
+            meetsCriteria = false;
+            break;
+          }
         }
-  
-        if(meetsCriteria){
+
+        if (meetsCriteria) {
           finalData.push(restaurant);
         }
       }
       resolve(finalData);
-    })
+    });
   }
 
   const params = {
@@ -132,24 +58,12 @@ function Home({ closeModal }) {
     key: "AIzaSyCeeAjKW3hefYIt0pYIIfQxiJP9cpo-QP0",
   };
 
-  useEffect(() =>{
-    axios
-    .get(
-      `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${params.location}&radius=${params.radius}&type=${params.type}&key=${params.key}`,
-      {
-        params,
-      }
-    )
-    .then((res) => {
-      convert(res.data.results).then((json) => {
+  useEffect(() => {
+    convert(nearby_data.results).then((json) => {
       console.log(json);
-      setMarkers(json);}
-      ); 
-    }).catch((error) => {
-      console.log(error);
-    })
-  },[])
-
+      setMarkers(json);
+    });
+  }, []);
 
   return (
     <>
@@ -157,12 +71,12 @@ function Home({ closeModal }) {
         <NavBar />
         <div className="Home">
           <div className="Map">
-            <MapComponent />
+            <MapComponent initialMarkers={markers}/>
           </div>
           <div className="Restaurants">
             <p>Restaurants Near You</p>
-            {list.map(() => (
-              <Favs />
+            {markers.map((marker) => (
+              <Favs data={marker} />
             ))}
           </div>
         </div>
