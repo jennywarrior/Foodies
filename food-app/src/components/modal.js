@@ -21,7 +21,7 @@ function Modal({closeModal}) {
     }
 
     return (
-        <div>
+        <div className="modalBackground">
             <motion.div 
             initial={{x: 200}}
             animate={{x: 0, transition: {duration: 0.15}}}

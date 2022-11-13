@@ -54,6 +54,18 @@ function Profile() {
   const [fullName, setFullName] = useState("");
   const { logout, currentUser } = useAuth();
   const [preferences, setPreferences] = useState([]);
+
+  const [halal, setHalal] = useState(false);
+  const [vegan, setVegan] = useState(false);
+  const [dairy, setDairy] = useState(false);
+  const [nuts, setNuts] = useState(false);
+  const [gluten, setGluten] = useState(false);
+  const [vegetarian, setVeggie] = useState(false);
+  const [soy, setSoy] = useState(false);
+  
+
+
+
   const navigate = useNavigate();
 
   async function handleLogout() {
