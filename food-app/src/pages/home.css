@@ -51,8 +51,8 @@
   
   img {
     width: 120px;
-    position: relative;
-    bottom: 18px;
+    margin-top: -20px;
+    margin-bottom: 5px;
   }
   
   .Name {
