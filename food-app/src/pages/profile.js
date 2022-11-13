@@ -10,20 +10,49 @@ import NutFreeSymbol from "./../images/nut-free.png";
 import SoyFreeSymbol from "./../images/soy-free.png";
 import VeganSymbol from "./../images/vegan.png";
 import VegetarianSymbol from "./../images/vegetarian.png";
+import { useEffect, useState } from "react";
+import { doc, getDoc, setDoc } from "firebase/firestore";
+import db from "../config/firestore";
+import { async } from "@firebase/util";
 
 function Profile() {
   const dietChoices = [
-    "halah",
-    "vegan",
-    "dairy",
-    "nuts",
-    "gluten free",
-    "seafood",
-    "vegetarian",
-    "kosher",
-    "soy",
+    {
+      type: "halal",
+      image: HalalSymbol,
+    },
+    {
+      type: "vegan",
+      image: VeganSymbol,
+    },
+    {
+      type: "dairy",
+      image: DairyFreeSymbol,
+    },
+    {
+      type: "nuts",
+      image: NutFreeSymbol,
+    },
+    {
+      type: "gluten free",
+      image: GlutenFreeSymbol,
+    },
+    {
+      type: "vegetarian",
+      image: VegetarianSymbol,
+    },
+    {
+      type: "kosher",
+      image: KosherSymbol,
+    },
+    {
+      type: "soy",
+      image: SoyFreeSymbol,
+    },
   ];
+
   const { logout, currentUser } = useAuth();
+  const [preferences, setPreferences] = useState([]);
   const navigate = useNavigate();
 
   async function handleLogout() {
@@ -36,72 +65,101 @@ function Profile() {
     }
   }
 
+  function updatePreferenceList(diet) {
+    if (preferences.includes(diet)) {
+      const index = preferences.indexOf(diet);
+      preferences.splice(index, 1);
+    } else {
+      preferences.push(diet);
+    }
+
+    setPreferences(preferences);
+  }
+
+  async function savePreferenceList() {
+    console.log(preferences);
+    await setDoc(doc(db, "users", currentUser.uid), {
+      preferences: preferences,
+    });
+  }
+
+  useEffect(() => {
+    console.log(currentUser.uid);
+    async function fetchData() {
+      const docRef = doc(db, "users", currentUser.uid);
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap) {
+        console.log(docSnap.data().preferences);
+        setPreferences(docSnap.data().preferences);
+      }
+    }
+
+    fetchData();
+  }, []);
+
   return (
     <div>
       <NavBar />
-      <h1>{currentUser.email}</h1>
-
-      <form>
+      <div className="main">
+        <h1>{currentUser.email}</h1>
         <div className="allBtns">
           <p className="restricts">choose your dietary restirctions:</p>
           <div className="prefBtns2">
-            <div className="prefs">
-              <img className="image" src={KosherSymbol} alt="kosher symbol" />
-            </div>
-            <div className="prefs">
-              <img className="image" src={HalalSymbol} alt="halal symbol" />
-            </div>
-            <div className="prefs">
-              <img
-                className="image"
-                src={DairyFreeSymbol}
-                alt="dairy free symbol"
-              />
-            </div>
-            <div className="prefs">
-              <img
-                className="image"
-                src={GlutenFreeSymbol}
-                alt="gluten free symbol"
-              />
-            </div>
+            {dietChoices.map((diet, idx) => {
+              if (idx < 4) {
+                return (
+                  <div
+                    id={idx}
+                    className="prefs"
+                    onClick={() => updatePreferenceList(diet.type)}
+                  >
+                    <img
+                      className="image"
+                      src={diet.image}
+                      alt={diet.type + "symbol"}
+                    />
+                  </div>
+                );
+              }
+            })}
           </div>
           <div className="prefBtns2">
-            <div className="prefs">
-              <img
-                className="image"
-                src={NutFreeSymbol}
-                alt="nut free symbol"
-              />
-            </div>
-            <div className="prefs">
-              <img
-                className="image"
-                src={SoyFreeSymbol}
-                alt="soy free symbol"
-              />
-            </div>
-            <div className="prefs">
-              <img className="image" src={VeganSymbol} alt="vegan symbol" />
-            </div>
-            <div className="prefs">
-              <img
-                className="image"
-                src={VegetarianSymbol}
-                alt="vegetarian symbol"
-              />
-            </div>
-          <p>change dietary preferences</p>
-          <img className="spinach" alt="" src={SpinachImg}/>
-          <button type="submit">Save</button>
+            {dietChoices.map((diet, idx) => {
+              if (idx >= 4) {
+                return (
+                  <div
+                    id={idx}
+                    className="prefs"
+                    onClick={() => updatePreferenceList(diet.type)}
+                  >
+                    <img
+                      className="image"
+                      src={diet.image}
+                      alt={diet.type + "symbol"}
+                    />
+                  </div>
+                );
+              }
+            })}
           </div>
-      </form>
-      <button className="button2" onClick={handleLogout}>
-        logout
-      </button>
+        </div>
+        <p>change dietary preferences</p>
+        <div className="button-group">
+          <button className="button2"
+            onClick={async (e) => {
+              await savePreferenceList(e);
+            }}
+          >
+            Save
+          </button>
+          <button className="button2" onClick={handleLogout}>
+            logout
+          </button>
+        </div>
+      </div>
     </div>
-    );
-  }
+  );
+}
 
-  export default Profile;
-  
+export default Profile;
