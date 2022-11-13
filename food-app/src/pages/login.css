@@ -3,17 +3,6 @@
     font-family: "JetBrains Mono";
   }
   
-  .App-logo {
-    height: 40vmin;
-    pointer-events: none;
-  }
-  
-  @media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-      animation: App-logo-spin infinite 20s linear;
-    }
-  }
-  
   .App-header {
     background-color: #ffffff;
     min-height: 100vh;
@@ -24,17 +13,20 @@
     font-size: calc(10px + 2vmin);
     color: rgb(0, 0, 0);
   }
-  
-  .App-link {
-    color: #61dafb;
+
+  .App-form {
+    margin-right: 50px;
   }
-  
-  @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
+
+  input {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    background: #F6F6F6;
+    padding: 15px;
+    font: 17px sans-serif;
+    border-radius: 20px;
+    margin-top: 20px;
+    color: #3E3D3D;
   }
   
