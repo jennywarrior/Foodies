@@ -2,6 +2,7 @@ import './login.css';
 import LoginImg from './../images/loginImg.png';
 import "@fontsource/jetbrains-mono";
 
+
 function Login() {
   return (
     <div className="App">
@@ -23,7 +24,8 @@ function Login() {
             </label>
           </div>
           <a
-            href="/home"
+            className="App-link"
+            href="https://www.google.com/"
             ><input type="submit" value="Login"  />
             </a>
         </form>

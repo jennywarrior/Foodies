@@ -1,0 +1,21 @@
+.favorites {
+    background-color: white;
+}
+
+.Restaurant {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: 80px;
+    margin-right: 80px;
+    background-color: white;
+    border-radius: 0px;
+    
+}
+
+.Item {
+    background-color: rgb(250, 250, 250);
+    padding-left: 20px;
+    padding-right: 50px;
+}

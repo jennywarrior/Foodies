@@ -5,7 +5,6 @@
     display: flex;
     position: absolute;
     justify-content: center;
-    margin-top: -33px;
     font-family: JetBrains Mono;
 }
 
@@ -19,12 +18,9 @@
     padding: 25px;
     right: 0px;
     overflow-y: scroll;
-    scrollbar-color: transparent transparent;
+   
 }
 
-.modalContainer::-webkit-scrollbar {
-    display: none;
-}
 
 .infoContainer {
     margin-top: 8px;
@@ -45,7 +41,7 @@
     left: -4px;
 }
 
-.image {
+.imager {
     object-fit: cover;
     width: 450px;
     height: 200px;
