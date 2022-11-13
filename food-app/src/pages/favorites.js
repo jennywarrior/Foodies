@@ -1,6 +1,11 @@
+import NavBar from './../components/NavBar';
+
 function Profile() {
     return (
-      <p>Favs</p>
+      <div>
+        <NavBar/>
+        <p>Favs</p>
+      </div>
     );
   }
   
