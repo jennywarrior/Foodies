@@ -1,0 +1,47 @@
+
+.prefs {
+    background-color: #F6F6F6;
+    border: 5px solid #F6F6F6; 
+    margin: 4px;
+    border-radius: 30px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.prefs:hover {
+    border: 5px solid rgba(214, 255, 161, 1); 
+}
+
+.prefBtns {
+    display: flex;
+}
+
+.allBtns2 {
+    margin: 20px 0;
+    display: flex;
+}
+
+.image {
+    width: auto;
+    height: 50px;
+    position: relative;
+    top: 0px;
+}
+
+.title {
+    font-size: 30px;
+    margin-bottom: 30px;
+    font-family: "JetBrains Mono";
+}
+
+.spinach {
+    width: 400px;
+    margin: 30px 0 0;
+} 
+
+p {
+    font-size: 20px;
+}
