@@ -52,15 +52,15 @@ app.get("/api/map/", (request, response) => {
     })
 });
 
-app.post("/api/users/create/:token", (request, response) => {
+app.post("/api/users/create/:id", (request, response) => {
   
 })
 
-app.post("/api/users/update/:token", (request, response) => {
+app.get("/api/users/account/:id", (request, response) => {
 
 })
 
-app.get("/api/users/information/:token", (request, response) => {
+app.post("/api/users/update/:token", (request, response) => {
 
 })
 
