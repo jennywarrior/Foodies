@@ -1,6 +1,8 @@
 import { useAuth } from "../contexts/AuthContext";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import db from "../config/firestore";
+import { collection, setDoc, doc } from "firebase/firestore";
 
 export default function SignUp() {
   const navigate = useNavigate();
@@ -14,7 +16,11 @@ export default function SignUp() {
     e.preventDefault();
 
     try {
-      await register(email, password);
+      const user = await register(email, password, fullName);
+      await setDoc(doc(db, "users", user.user.uid), {
+        preferences: [],
+        favorites: [],
+      });
       navigate("/");
       console.log(fullName);
     } catch (e) {
