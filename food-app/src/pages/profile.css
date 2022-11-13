@@ -18,3 +18,30 @@
 .prefBtns {
     display: flex;
 }
+
+.allBtns2 {
+    margin: 20px 0;
+    display: flex;
+}
+
+.image {
+    width: auto;
+    height: 50px;
+    position: relative;
+    top: 0px;
+}
+
+.title {
+    font-size: 30px;
+    margin-bottom: 30px;
+    font-family: "JetBrains Mono";
+}
+
+.spinach {
+    width: 400px;
+    margin: 30px 0 0;
+} 
+
+p {
+    font-size: 20px;
+}
