@@ -3,7 +3,7 @@ import "@fontsource/jetbrains-mono";
 import NavBar from "../components/NavBar";
 import React, { useState } from "react";
 import Modal from "../components/modal";
-import { Wrapper, Status } from "@googlemaps/react-wrapper";
+import MapComponent from "../components/MapComponent"
 
 function Home({closeModal}) {
   const [show, setShow] = useState(false);  
@@ -14,7 +14,7 @@ function Home({closeModal}) {
   let list = [];
   for (let i = 0; i < 5; i++) {
     list.push(
-      <div>
+      <div key={i}>
         <div>
           {!liked && <div style={{color: "black", fontSize: "35px", height: "0", width: "20px", position: "relative", right: "-5px", top: "-5px"}} onClick={() => setLiked(!liked)}>&#9829;</div> }
           {liked && <div style={{color: "red", fontSize: "35px", height: "0", width: "20px", position: "relative", right: "-5px", top: "-5px"}} onClick={() => setLiked(!liked)}>&#9829;</div>}
@@ -35,7 +35,9 @@ function Home({closeModal}) {
         <NavBar />
         {show && <Modal closeModal={setShow} />}
         <div className="Home">
-          <div className="Map"></div>
+          <div className="Map">
+            <MapComponent/>
+          </div>
           <div className="Restaurants">
             <p>Restaurants Near You</p>
             {list}
