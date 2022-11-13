@@ -12,6 +12,7 @@ function NavBar() {
             <button className='button2'>profile</button>
           </div>
         
+
       </div>
     );
   }
