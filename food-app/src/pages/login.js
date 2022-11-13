@@ -5,9 +5,7 @@ function Login() {
   return (
     <div className="App">
       <header className="App-header">
-      <div>
-        <img src={LoginImg} alt="logo" />
-      </div>
+        <img src={LoginImg} alt="logo" rel="noreferrer" />
       <div>
         <p>foodies</p>
         <form>
@@ -24,15 +22,13 @@ function Login() {
         </form>
             <a
             className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/home"
             >
             <p>Login</p>
             </a>
             <a
-            href="https://reactjs.org"
-            target="_blank"
+            className="App-link"
+            href="/signup"
             >
             <p>create account</p>
             </a>
