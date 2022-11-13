@@ -11,7 +11,7 @@ import SoyFreeSymbol from "./../images/soy-free.png";
 import VeganSymbol from "./../images/vegan.png";
 import VegetarianSymbol from "./../images/vegetarian.png";
 import { useEffect, useState } from "react";
-import { doc, getDoc, setDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 import db from "../config/firestore";
 import { async } from "@firebase/util";
 
@@ -51,6 +51,7 @@ function Profile() {
     },
   ];
 
+  const [fullName, setFullName] = useState("");
   const { logout, currentUser } = useAuth();
   const [preferences, setPreferences] = useState([]);
   const navigate = useNavigate();
@@ -78,7 +79,7 @@ function Profile() {
 
   async function savePreferenceList() {
     console.log(preferences);
-    await setDoc(doc(db, "users", currentUser.uid), {
+    await updateDoc(doc(db, "users", currentUser.uid), {
       preferences: preferences,
     });
   }
@@ -90,7 +91,7 @@ function Profile() {
       const docSnap = await getDoc(docRef);
 
       if (docSnap) {
-        console.log(docSnap.data().preferences);
+        setFullName(docSnap.data().fullName);
         setPreferences(docSnap.data().preferences);
       }
     }
@@ -102,7 +103,8 @@ function Profile() {
     <div>
       <NavBar />
       <div className="main">
-        <h1>{currentUser.email}</h1>
+        <h1>{fullName}</h1>
+        <h2>{currentUser.email}</h2>
         <div className="allBtns">
           <p className="restricts">choose your dietary restirctions:</p>
           <div className="prefBtns2">

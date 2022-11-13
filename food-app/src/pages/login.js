@@ -4,6 +4,7 @@ import "@fontsource/jetbrains-mono";
 import { useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
 
+
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -39,7 +40,7 @@ function Login() {
             </div>
             <div>
               <label>
-                <input type="text" placeholder="password" onChange={(e) => setPassword(e.target.value)} />
+                <input type="password" placeholder="password" onChange={(e) => setPassword(e.target.value)} />
               </label>
             </div>
             <button type="submit">
