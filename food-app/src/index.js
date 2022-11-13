@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import Login from './pages/login';
-import Home from './home';
+import Home from './pages/home';
 import SignUp from './pages/signup';
 import Profile from './pages/profile';
 import Favorites from './pages/favorites';

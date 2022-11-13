@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 function Modal({closeModal}) {
     var stars = [];
-    var num = 3;
+    var num = 4;
     for (let i = 0; i < num; i++) {
         stars.push(
             <img className="starImg" src="https://upload.wikimedia.org/wikipedia/commons/4/44/Plain_Yellow_Star.png" alt=""></img>
@@ -27,7 +27,7 @@ function Modal({closeModal}) {
             animate={{x: 0, transition: {duration: 0.15}}}
             className="modalContainer">
                 <button className="x-out" onClick={() => closeModal(false)}>X</button>
-                <img className="image" src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?cs=srgb&dl=pexels-ella-olsson-1640777.jpg&fm=jpg" alt=""></img>
+                <img className="imager" src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?cs=srgb&dl=pexels-ella-olsson-1640777.jpg&fm=jpg" alt=""></img>
                 <div className="title">Very Awesome Restaurant</div>
                 <div className="divider"></div>
                 <div className="infoContainer">
